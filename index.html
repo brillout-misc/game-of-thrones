@@ -1,2 +1,55 @@
-<h1>hello</h1>
-again
+<html>
+    <head>
+        <script>
+            (async () => {
+                let url_base = window.location.pathname;
+                if( url_base.endsWith('/') ) {
+                    url_base = url_base.slice(0, -1);
+                }
+                const list_url = url_base+'/characters/_list.json';
+                const character_list = await fetch_json(list_url);
+                add_content(list_url, character_list);
+                for(const character_url of character_list) {
+                    const character = await fetch_json(character_url);
+                    add_content(character_url, character, 10);
+                    const img =  document.createElement('img');
+                    const img_src = character.picture;
+                    img.width = 300;
+                    img.src = img_src;
+                    add_content(img_src, img);
+                }
+            })();
+
+            function fetch_json(url) {
+                return (
+                    fetch(url).then(response => response.json()).catch(err => {
+                        console.log(url);
+                        throw err;
+                    })
+                );
+            }
+
+            function add_content(url, content, marginBottom=100) {
+                const container_el = document.createElement('div');
+                container_el.style.marginBottom = marginBottom+'px';
+                container_el.innerHTML = `
+                    <div><b>${url}</b></div>
+                `;
+                const body_el = document.querySelector('#body');
+                body_el.appendChild(container_el);
+                if( ! (content instanceof HTMLElement) ) {
+                    const content_el = document.createElement('pre');
+                    content_el.style.marginTop = 0;
+                    content_el.style.marginBottom = 0;
+                    content_el.innerHTML = JSON.stringify(content, null, 2);
+                    content = content_el;
+                }
+                container_el.appendChild(content);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Game of Thrones Characters</h1>
+        <div id="body"></div>
+    </body>
+</html>
