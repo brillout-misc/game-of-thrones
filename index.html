@@ -34,7 +34,7 @@
                 const container_el = document.createElement('div');
                 container_el.style.marginBottom = marginBottom+'px';
                 container_el.innerHTML = `
-                    <div><b>${url}</b></div>
+                    <div><b><a href="${url}">${url}</a></b></div>
                 `;
                 const body_el = document.querySelector('#body');
                 body_el.appendChild(container_el);
