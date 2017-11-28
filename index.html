@@ -6,7 +6,7 @@
                 if( url_base.endsWith('/') ) {
                     url_base = url_base.slice(0, -1);
                 }
-                const list_url = url_base+'/characters/_list.json';
+                const list_url = url_base+'/characters/list.json';
                 const character_list = await fetch_json(list_url);
                 add_content(list_url, character_list);
                 for(const {name, link} of character_list) {
