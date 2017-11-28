@@ -9,9 +9,9 @@
                 const list_url = url_base+'/characters/_list.json';
                 const character_list = await fetch_json(list_url);
                 add_content(list_url, character_list);
-                for(const character_url of character_list) {
-                    const character = await fetch_json(character_url);
-                    add_content(character_url, character, 10);
+                for(const {name, link} of character_list) {
+                    const character = await fetch_json(link);
+                    add_content(link, character, 10);
                     const img =  document.createElement('img');
                     const img_src = character.picture;
                     img.width = 300;
