@@ -1,38 +1,38 @@
 [
   {
     "name": "Daenerys Targaryen",
-    "link": "/characters/details/daenerys.json"
+    "id": "daenerys"
   },
   {
     "name": "Jon Snow",
-    "link": "/characters/details/jon.json"
+    "id": "jon"
   },
   {
     "name": "Cersei Lannister",
-    "link": "/characters/details/cersei.json"
+    "id": "cersei"
   },
   {
     "name": "Petyr Baelish",
-    "link": "/characters/details/petyr.json"
+    "id": "petyr"
   },
   {
     "name": "Bran Stark",
-    "link": "/characters/details/bran.json"
+    "id": "bran"
   },
   {
     "name": "Tyrion Lannister",
-    "link": "/characters/details/tyrion.json"
+    "id": "tyrion"
   },
   {
     "name": "Varys",
-    "link": "/characters/details/varys.json"
+    "id": "varys"
   },
   {
     "name": "Tormund",
-    "link": "/characters/details/tormund.json"
+    "id": "tormund"
   },
   {
     "name": "Samwell Tarly",
-    "link": "/characters/details/samwell.json"
+    "id": "samwell"
   }
 ]

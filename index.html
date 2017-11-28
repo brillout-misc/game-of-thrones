@@ -7,7 +7,8 @@
                 const list_pathname = '/characters/list.json';
                 const character_list = await fetch_json(list_pathname);
                 add_content(list_pathname, character_list);
-                for(const {name, link} of character_list) {
+                for(const {name, id} of character_list) {
+                    const link = '/characters/details/'+id+'.json';
                     const character = await fetch_json(link);
                     add_content(link, character, 10);
                     const img =  document.createElement('img');
