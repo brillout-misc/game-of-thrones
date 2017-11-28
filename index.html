@@ -11,10 +11,10 @@
                     const character = await fetch_json(link);
                     add_content(link, character, 10);
                     const img =  document.createElement('img');
-                    const img_src = character.picture;
+                    const img_pathname = character.picture;
                     img.width = 300;
-                    img.src = img_src;
-                    add_content(img_src, img);
+                    img.src = url_base + img_pathname;
+                    add_content(img_pathname, img);
                 }
             })();
 
